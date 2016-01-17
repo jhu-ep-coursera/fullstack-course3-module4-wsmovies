@@ -1,0 +1,25 @@
+<%= form_for([@movie,@movie_role], url: movie_role_path(@movie, @movie_role)) do |f| %>
+  <% if @movie_role.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movie_role.errors.count, "error") %> prohibited this movie_role from being saved:</h2>
+
+      <ul>
+      <% @movie_role.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :character %><br>
+    <%= f.text_field :character %>
+  </div>
+  <div class="field">
+    <%= f.label :actor_id %><br>
+    <%= f.text_field :actor_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
